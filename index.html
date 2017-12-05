@@ -1,0 +1,127 @@
+<html>
+	<head>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu:400,700" rel="stylesheet">
+		<style>
+		body {
+			margin: 0px;
+		}
+
+		h1, h2, h4 {
+			font-family: 'Ubuntu', sans-serif;
+		}
+
+		h2 {
+			margin-top: 0px;
+		}
+
+		h1 {
+			font-size: 45px;
+			margin-bottom: 13.15px;
+		}
+
+		p {
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		button {
+			border: none;
+    		background-color: #ffffff;
+    		padding: 10px 20px;
+    		border-radius: 20px;
+    		font-size: 14px;
+    		text-transform: uppercase;
+    		font-weight: 600;
+		}
+
+		.header {
+			text-align: center;
+			padding: 40px;
+			background-color: #ffbfbf;
+		}
+
+		.product {
+			margin: auto;
+		}
+
+		img {
+			width: 250px;
+			display: block;
+			margin: auto;
+			margin-top: 39px;
+		}
+
+		.product_text {
+			max-width: 100%;
+			margin-top: 40px;
+    		text-align: center;
+    		background-color: #ffbfbf;
+    		padding: 40px;
+		}
+
+		.related_products {
+			max-width: 750px;
+			margin: auto;
+			text-align: center;
+		}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<h1>Melo studios</h1>
+			<p><i>Handcrafted exclusive furniture</i></p>
+		</div>
+		<div class="product">
+	
+		</div>
+		<div class="related_products">
+			<h4>Related products</h4>
+		</div>
+	</body>
+
+	<script>
+
+	var productVariable = "table";
+
+	var productObject = {
+		name: "Floor Lamp by BERNADOTTE & BJORN",
+		price: 18000,
+		image: "http://dustydeco.com/wp-content/uploads/2017/11/263460-f07ce220e5664d94be8c571b04533ed1-400x600.jpeg",
+	};
+
+	var productObject2 = {
+		name: "Brass Desk Lamp",
+		price: 22000,
+		image: "https://i.pinimg.com/236x/85/fa/3f/85fa3ff66a0fcabbb8b53a198d8388ce--spotlight-floor-lamp-floor-lamps.jpg",
+	};
+	var productObject3 = {
+		name: "Set of Cone Table Lamps",
+		price: 13000,
+		image: "http://dustydeco.com/wp-content/uploads/2017/10/IMG_9713-600x400.jpg",
+	};
+
+	var productArray = [productObject, productObject2, productObject3];
+
+	var printProducts = function(productArray) {
+		$('.product').append("<img src="+productArray[0].image+" />")
+		$(".product").append("<div class=product_text></div>")
+		$('.product_text').append('<h2>'+productArray[0].name+'</h2>')
+		$('.product_text').append('<p>Price: '+productArray[0].price+' SEK </p>')
+		$('.product_text').append('<button>Buy item</button>')
+	
+		for (i = 1; i < productArray.length; i++) {
+			$('.related_products').append("<div class=product_container></div>")
+			$('.product_container').last().append("<img src="+productArray[i].image+" />")
+			$('.product_container').last().append("<p><strong>"+productArray[i].name+"</strong></p>")
+			$('.product_container').last().append("<p>"+productArray[i].price+" kr</p>")
+		}
+	}
+
+	printProducts(productArray);
+
+
+	</script>
+</html>
